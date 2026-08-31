@@ -1,0 +1,6 @@
+<?php include 'includes/header.php';$u=user();$msg=$_GET['msg']??'';$err=$_GET['error']??'';?>
+<div class="page-head"><div><p class="eyebrow">ACCOUNT</p><h1>Profile & Security</h1></div></div>
+<?php if($msg):?><div class="alert success"><?=e($msg)?></div><?php endif;?><?php if($err):?><div class="alert danger"><?=e($err)?></div><?php endif;?>
+<div class="grid two"><div class="card"><h3>Profile</h3><form method="post" action="profile_save.php"><?=csrf_field()?><label>Name</label><input name="name" value="<?=e($u['name'])?>" required><label>Email</label><input value="<?=e($u['email'])?>" disabled><label>Role</label><input value="<?=e($u['role'])?>" disabled><label>Institution</label><input value="<?=e($u['institution_type'].' · '.$u['institution_code'])?>" disabled><button>Save profile</button></form></div>
+<div class="card"><h3>Change password</h3><form method="post" action="password_save.php"><?=csrf_field()?><label>Current password</label><input type="password" name="current" required><label>New password</label><input type="password" name="new_password" minlength="8" required><label>Confirm password</label><input type="password" name="confirm" minlength="8" required><button>Update password</button></form></div></div>
+<?php include 'includes/footer.php';?>

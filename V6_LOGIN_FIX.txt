@@ -1,0 +1,9 @@
+ITDP V6 LOGIN FIX
+
+Main Officer registration is now auto-approved and uses role super_admin.
+Existing pending admin/super_admin accounts are auto-approved when they successfully authenticate.
+
+For an existing installation, no database re-import is required for login; replace the project files and try Main Officer login again.
+If you want to run the SQL migration manually, database.sql includes the migration statement near the top.
+
+Main Officer registration key: ITDP-MAIN-2026
